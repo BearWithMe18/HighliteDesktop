@@ -1,4 +1,3 @@
-
 import { IndexDBWrapper } from './helpers/IndexDBWrapper';
 import { Highlite } from './highlite/core/core';
 import { HPAlert } from './highlite/plugins/HPAlert';
@@ -21,21 +20,21 @@ import { TreasureMapHelper } from './highlite/plugins/TreasureMapHelper';
 import { BankSearch } from './highlite/plugins/BankSearch';
 import { FPSLimiter } from './highlite/plugins/FPSLimiter';
 import { DefinitionsPanel } from './highlite/plugins/DefinitionsPanel';
-import { CurrentStatus } from "./highlite/plugins/CurrentStatus";
+import { CurrentStatus } from './highlite/plugins/CurrentStatus';
 import { MinimapIcons } from './highlite/plugins/MinimapIcons';
 import { EmojiChat } from './highlite/plugins/EmojiChat';
 import { AutoSprint } from './highlite/plugins/AutoSprint';
-import { EntityHighlight } from "./highlite/plugins/EntityHighlight";
+import { EntityHighlight } from './highlite/plugins/EntityHighlight';
 import { InventoryTooltips } from './highlite/plugins/InventoryTooltips';
-import { PacketQueue } from "./highlite/plugins/PacketQueue";
+import { PacketQueue } from './highlite/plugins/PacketQueue';
 import { ChatEnhancer } from './highlite/plugins/ChatEnhancer';
 
 import '@iconify/iconify';
 import { ShiftDrop } from "./highlite/plugins/ShiftDrop";
 
-import "@static/css/index.css"
-import "@static/css/overrides.css"
-import "@static/css/item-tooltip.css"
+import '@static/css/index.css';
+import '@static/css/overrides.css';
+import '@static/css/item-tooltip.css';
 
 import './helpers/titlebarHelpers.js';
 import { setupWorldSelectorObserver } from './helpers/worldSelectHelper';
@@ -47,14 +46,8 @@ const PLUGIN_REGISTRY = [
     { class: Lookup, path: './highlite/plugins/Lookup' },
     { class: Nameplates, path: './highlite/plugins/Nameplates' },
     { class: EnhancedHPBars, path: './highlite/plugins/EnhancedHPBars' },
-    {
-        class: EnhancedLoginScreen,
-        path: './highlite/plugins/EnhancedLoginScreen',
-    },
-    {
-        class: ContextMenuOptions,
-        path: './highlite/plugins/ContextMenuOptions',
-    },
+    { class: EnhancedLoginScreen, path: './highlite/plugins/EnhancedLoginScreen' },
+    { class: ContextMenuOptions, path: './highlite/plugins/ContextMenuOptions' },
     { class: TradeAlerts, path: './highlite/plugins/TradeAlerts' },
     { class: PMAlerts, path: './highlite/plugins/PMAlerts' },
     { class: CoinCounter, path: './highlite/plugins/CoinCounter' },
