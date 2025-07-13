@@ -1,13 +1,15 @@
 import { Plugin } from "../core/interfaces/highlite/plugin/plugin.class";
+import { ContextMenuManager } from "../core/managers/game/contextMenuManager";
 
 export class ShiftDrop extends Plugin {
     pluginName = "ShiftDrop";
     author = "BearWithMe18";
 
-    private isShiftPressed: boolean = false;
+    private contextmenumanager = new ContextMenuManager();
 
     constructor() {
         super();
+
     }
     init(): void {
         this.log("Initializing ShiftDrop");
@@ -23,26 +25,20 @@ export class ShiftDrop extends Plugin {
     }
 
     private addEventListeners() {
-        const keydownHandler = (e: Event) => {
-            const keyEvent = e as KeyboardEvent;
-            if (keyEvent.key === 'Shift' && !this.isShiftPressed) {
-                this.isShiftPressed = true;
+        const shiftHandler = (e: KeyboardEvent) => {
+            if (e.key == "Shift") {
+                this.contextmenumanager.SetInventoryActionMenuPosition("Drop", -1);
+            } else {
+                this.contextmenumanager.RemoveGameWorldActionMenuPosition("Drop");
             }
         };
 
-        const keyupHandler = (e: Event) => {
-            const keyEvent = e as KeyboardEvent;
-            if (keyEvent.key === 'Shift' && this.isShiftPressed) {
-                this.isShiftPressed = false;
-            }
-        };
-
-        document.addEventListener('keydown', keydownHandler);
-        document.addEventListener('keyup', keyupHandler);
+        document.addEventListener("keydown", shiftHandler);
+        document.addEventListener("keyup", shiftHandler);
 
         this.eventListeners = [
-            { element: document, event: 'keydown', handler: keydownHandler },
-            { element: document, event: 'keyup', handler: keyupHandler }
+            { element: document, event: "keydown", handler: shiftHandler },
+            { element: document, event: "keyup", handler: shiftHandler }
         ];
     }
 
