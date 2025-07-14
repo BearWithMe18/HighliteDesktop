@@ -5,7 +5,7 @@ export class ShiftDrop extends Plugin {
     pluginName = "ShiftDrop";
     author = "BearWithMe18";
 
-    private contextmenumanager = new ContextMenuManager();
+    contextMenuManager: ContextMenuManager = new ContextMenuManager();
 
     constructor() {
         super();
@@ -27,9 +27,9 @@ export class ShiftDrop extends Plugin {
     private addEventListeners() {
         const shiftHandler = (e: KeyboardEvent) => {
             if (e.key == "Shift") {
-                this.contextmenumanager.SetInventoryActionMenuPosition("Drop", -1);
+                this.contextMenuManager.SetInventoryActionMenuPosition("Drop", -1);
             } else {
-                this.contextmenumanager.RemoveGameWorldActionMenuPosition("Drop");
+                this.contextMenuManager.RemoveGameWorldActionMenuPosition("Drop");
             }
         };
 
